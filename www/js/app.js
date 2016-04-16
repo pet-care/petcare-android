@@ -3,7 +3,28 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('petCare', ['ionic'])
+
+.controller('PetController', function ($scope, $http) {
+  console.log("a");
+
+  $http.get('http://petcare-dev23cc.rhcloud.com/mock-pets').success(function (response) {
+    $scope.pets = response;
+  }).catch(function(response) {
+    console.error('error', response.status, response.data, response.config, response.headers);
+  });
+  /*  $scope.success = function() {
+
+      //$scope.$apply is needed to trigger the digest cycle when the geolocation arrives and to update all the watchers
+      $scope.$apply(function(response) {
+
+            .finally(function() {
+              console.log("finally finished");
+            });
+      });
+    }
+*/
+  })
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,4 +42,6 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
+
+
 })
