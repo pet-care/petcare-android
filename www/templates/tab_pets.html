@@ -4,7 +4,8 @@
         <div class="list card" >
             
             <div class="item  item-thumbnail-left " href="#">
-                <img src="http://petcare-dev23cc.rhcloud.com/mock-pets">
+               <!-- <img src="http://petcare-dev23cc.rhcloud.com/mock-pets"> -->
+                <img data-ng-src="data:image/jpeg;base64,"+{{pet.photo}} />
                 <h2>Pet Name {{pet.name}}  </h2>
                 <p>PetContact Phone {{pet.contactPhone}} </p>
                 <p> Pet Contact Name {{pet.contactName}} </p>
