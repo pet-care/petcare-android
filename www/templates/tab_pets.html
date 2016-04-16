@@ -1,0 +1,15 @@
+<ion-view view-title="Pets For Adoption">
+  <ion-content class="padding" ng-app="petCare" ng-controller="PetController as pets">
+    <div ng-repeat="pet in pets">
+        <div class="list card" >
+            
+            <div class="item  item-thumbnail-left " href="#">
+                <img src="http://petcare-dev23cc.rhcloud.com/mock-pets">
+                <h2>Pet Name {{pet.name}}  </h2>
+                <p>PetContact Phone {{pet.contactPhone}} </p>
+                <p> Pet Contact Name {{pet.contactName}} </p>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>
