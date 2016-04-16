@@ -24,13 +24,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 .controller('PetController', function ($scope, $http) {
-  
+
   $http.get('http://petcare-dev23cc.rhcloud.com/mock-pets').success(function (response) {
     $scope.pets = response;
   }).catch(function(response) {
     console.error('error', response.status, response.data, response.config, response.headers);
   });
- // $scope.decode = atob("data:image/jpeg;base64,"+$scope.pets.photo);
+
 
   /*  $scope.success = function() {
       //$scope.$apply is needed to trigger the digest cycle when the geolocation arrives and to update all the watchers
