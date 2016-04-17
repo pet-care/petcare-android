@@ -1,20 +1,20 @@
 <ion-view view-title="Add A Pet">
-  <ion-content ng-controller='AddPetCtrl'>
-  <form>
+  <ion-content ng-controller='PetViewController' >
+  <form ng-submit="submitForm()">
     <div class="list list-inset">
   <label class="item item-input">
-    <input type="text" placeholder="City">
+    <input type="text"  ng-model="pet.city"placeholder="City">
   </label>
   <label class="item item-input">
-    <input type="text" placeholder="Pet Name">
+    <input type="text" ng-model="pet.name" placeholder="Pet Name">
   </label>
   <label class="item item-input">
-    <input type="text" placeholder="Your Name">
+    <input type="text" ng-model="pet.contactName" placeholder="Your Name">
   </label>
   <label class="item item-input">
-    <input type="text" placeholder="Telephone Number">
+    <input type="text" ng-model="pet.contactPhone" placeholder="Telephone Number">
   </label>
-  <button ng-click(createTask) class="button button-block button-positive">Submit</button>
+  <button type="submit" class="button button-block button-positive">Submit</button>
 <!--<button  class="button button-block button-positive">Submit</button> -->
 
 

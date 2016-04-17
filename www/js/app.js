@@ -45,7 +45,6 @@ angular.module('petcare', ['ionic', 'petcare.controllers', 'petcare.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
@@ -60,7 +59,7 @@ angular.module('petcare', ['ionic', 'petcare.controllers', 'petcare.services'])
     views: {
       'tab_pets': {
         templateUrl: 'templates/tab_pets.html',
-        controller: 'PetsCtrl'
+        controller: 'PetViewController'
       }
     }
   })
@@ -70,19 +69,11 @@ angular.module('petcare', ['ionic', 'petcare.controllers', 'petcare.services'])
       views: {
         'tab_addpet': {
           templateUrl: 'templates/tab_addpet.html',
-          controller: 'AddPetCtrl'
+          controller: 'AddPetController'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
+
 
   .state('tab.about', {
     url: '/about',
@@ -92,7 +83,7 @@ angular.module('petcare', ['ionic', 'petcare.controllers', 'petcare.services'])
         controller: 'AboutCtrl'
       }
     }
-  });
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/pets');

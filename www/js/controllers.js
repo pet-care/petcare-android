@@ -10,45 +10,43 @@ angular.module('petcare.controllers', [])
   })
 
  .controller('PetsCtrl', function($scope) {
-//   // create a blank object to handle form data.
-//     $scope.pet = {};
-//   // calling our submit function.
-//     $scope.submitForm = function() {
-//     // Posting data to php file
-//     $http({
-//       method  : 'POST',
-//       url     : 'http://petcare-dev23cc.rhcloud.com/new/pet',
-//       data    : $scope.pet, //forms user object
-// }
-//      ).success(function(data) {
-//         if (data.errors) {
-//           // Showing errors.
-//           $scope.errorName = data.errors.name;
-//           $scope.errorUserName = data.errors.username;
-//           $scope.errorEmail = data.errors.email;
-//         } else {
-//           $scope.message = data.message;
-//         }
-//       });
-//     };
-// });
-//
-//
+
  })
 
-.controller('AddPetCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('AddPetController', function($scope, $http) {
 
-  // $scope.chats = Chats.all();
-  // $scope.remove = function(chat) {
-  //   Chats.remove(chat);
-  // };
+    // create a blank object to handle form data.
+      $scope.pet = {};
+    // calling our submit function.
+      $scope.submitForm = function() {
+      // Posting data to php file
+      $http({        method  : 'POST',
+
+        url     : 'http://petcare-dev23cc.rhcloud.com/new/pet',
+        data    : $scope.pet //forms user object
+
+  }
+       ).success(function(data) {
+         console.log("lol pet");
+         console.log($scope.pet);
+          if (data.errors) {
+            // Showing errors.
+            $scope.errorName = data.errors.name;
+            $scope.errorUserName = data.errors.username;
+            $scope.errorEmail = data.errors.email;
+
+            console.log("Showing errors.");
+            console.log($scope);
+
+          } else {
+            $scope.message = data.message;
+          }
+        });
+      };
+
+
+
+
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
