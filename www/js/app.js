@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('petcare', ['ionic', 'petcare.controllers', 'petcare.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,13 +23,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.controller('PetController', function ($scope, $http) {
 
-  $http.get('http://petcare-dev23cc.rhcloud.com/mock-pets').success(function (response) {
-    $scope.pets = response;
-  }).catch(function(response) {
-    console.error('error', response.status, response.data, response.config, response.headers);
-  });
+
 
 
   /*  $scope.success = function() {
@@ -41,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       });
     }
 */
-  })
+
 
 .config(function($stateProvider, $urlRouterProvider) {
 
