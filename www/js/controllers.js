@@ -13,6 +13,8 @@ angular.module('petcare.controllers', [])
 
  })
 
+
+
 .controller('AddPetController', function($scope, $http) {
 
     // create a blank object to handle form data.
@@ -20,6 +22,23 @@ angular.module('petcare.controllers', [])
     // calling our submit function.
       $scope.submitForm = function() {
       // Posting data to php file
+    /*
+      $scope.pictureUrl = 'http://placehold.it/300x300';
+
+      $scope.takePicture = function() {
+        var options = {
+          destinationType: Camera.destinationType.DATA_URL, 
+          encodingType: Camera.EncodingType.JPEG
+        }
+        $cordovaCamera.getPicture(options)
+          .then(function(data) {
+            console.log('camera data: ' + angular.toJson(data));
+            $scope.pictureUrl = 'data:image/jpeg;base64,' + data;
+          },  function(error) {
+            console.log('camera error: ' + angular.toJson(data));
+          });
+      };
+    */
       $http({        method  : 'POST',
 
         url     : 'http://petcare-dev23cc.rhcloud.com/new/pet',
@@ -44,6 +63,7 @@ angular.module('petcare.controllers', [])
         });
       };
 
+      
 
 
 
