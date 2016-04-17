@@ -2,7 +2,7 @@ angular.module('petcare.controllers', [])
 
 .controller('PetViewController', function ($scope, $http) {
 
-  $http.get('http://petcare-dev23cc.rhcloud.com/mock-pets').success(function (response) {
+  $http.get('http://petcare-dev23cc.rhcloud.com/get/all').success(function (response) {
     $scope.pets = response;
   }).catch(function(response) {
     console.error('error', response.status, response.data, response.config, response.headers);
@@ -38,7 +38,21 @@ angular.module('petcare.controllers', [])
             console.log('camera error: ' + angular.toJson(data));
           });
       };
+
+
     */
+    var image = document.getElementById('image');
+    var img = new Image();
+    var canvas = document.createElement("canvas");
+    canvas.width = image.width;
+    canvas.height = image.width;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    $scope.pet.photo = canvas.toDataURL("image/jpg");
+console.log($scope.pet);
+    
+
+       //document.getElementById('image');
       $http({        method  : 'POST',
 
         url     : 'http://petcare-dev23cc.rhcloud.com/new/pet',
@@ -63,7 +77,7 @@ angular.module('petcare.controllers', [])
         });
       };
 
-      
+  //  alert(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
 
 
 
